@@ -24,14 +24,50 @@ A high-performance wordlist mutation engine written in Go. Brutekit transforms s
 
 ## Installation
 
-```bash
-# Clone the repository
-git clone https://github.com/gnomegl/brutekit
-cd brutekit
+### Using Go Install (Recommended)
 
-# Build the binary
-go build
+1. Make sure you have Go installed on your system (version 1.21 or higher)
+   ```bash
+   go version
+   ```
+
+2. Install brutekit directly using go install:
+   ```bash
+   go install github.com/gnomegl/brutekit@latest
+   ```
+
+3. Verify the installation:
+   ```bash
+   brutekit -h
+   ```
+
+Note: Make sure your Go bin directory (usually `~/go/bin`) is in your PATH.
+If not, add this to your ~/.bashrc or ~/.zshrc:
+```bash
+export PATH=$PATH:~/go/bin
 ```
+
+### Building from Source
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/gnomegl/brutekit
+   ```
+
+2. Change to the project directory:
+   ```bash
+   cd brutekit
+   ```
+
+3. Build the binary:
+   ```bash
+   go build
+   ```
+
+4. Run brutekit:
+   ```bash
+   ./brutekit -h
+   
 
 ## Usage
 
