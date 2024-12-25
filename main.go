@@ -7,6 +7,7 @@ package main
 
 import (
 	"bufio"
+	_ "embed"
 	"flag"
 	"fmt"
 	"os"
@@ -60,6 +61,9 @@ type Config struct {
 // Global mutation storage
 var mutations []string
 var commonPaddings []string
+
+//go:embed common_padding_values.txt
+var embeddedPaddings string
 
 func main() {
 	// Parse command line flags and store in config
@@ -142,20 +146,8 @@ func parseFlags() Config {
 }
 
 func loadCommonPaddings() error {
-	// Check if common paddings file exists
-	if _, err := os.Stat("common_padding_values.txt"); err != nil {
-		return fmt.Errorf("common_padding_values.txt not found")
-	}
-
-	// Open common paddings file
-	file, err := os.Open("common_padding_values.txt")
-	if err != nil {
-		return err
-	}
-	defer file.Close()
-
-	// Read common paddings file
-	scanner := bufio.NewScanner(file)
+	// Read common paddings from file
+	scanner := bufio.NewScanner(strings.NewReader(embeddedPaddings))
 	for scanner.Scan() {
 		val := strings.TrimSpace(scanner.Text())
 		if val != "" {
