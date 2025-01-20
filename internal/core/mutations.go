@@ -1,6 +1,10 @@
 package core
 
-import "strings"
+import (
+	"strings"
+
+	"github.com/gnomegl/brutekit/internal/utils"
+)
 
 // Transformation map for leet speak substitutions
 // This can be customized by adding/modifying character mappings
@@ -42,10 +46,10 @@ func GenerateMutations(word string) {
 	Mutations = append(Mutations, leetVariations...)
 
 	// Apply paddings if configured
-	if len(commonPaddings) > 0 {
+	if len(utils.CommonPaddings) > 0 {
 		var tempMutations []string
 		for _, mut := range Mutations {
-			for _, pad := range commonPaddings {
+			for _, pad := range utils.CommonPaddings {
 				tempMutations = append(tempMutations, mut+pad)
 				tempMutations = append(tempMutations, pad+mut)
 			}

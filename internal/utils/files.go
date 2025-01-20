@@ -26,7 +26,7 @@ func LoadCommonPaddings() error {
 	return scanner.Err()
 }
 
-func WriteResults(filename string) error {
+func WriteResults(filename string, mutations []string) error {
 	file, err := os.Create(filename)
 	if err != nil {
 		return err

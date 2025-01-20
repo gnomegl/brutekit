@@ -57,7 +57,7 @@ func main() {
 		outputFile = cfg.Output
 	}
 
-	if err := utils.WriteResults(outputFile); err != nil {
+	if err := utils.WriteResults(outputFile, core.Mutations); err != nil {
 		fmt.Printf("\n[%sDebug%s] Error writing results: %v\n", utils.RED, utils.END, err)
 		os.Exit(1)
 	}
