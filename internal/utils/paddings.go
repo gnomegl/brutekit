@@ -1,4 +1,7 @@
-123
+package utils
+
+// DefaultPaddings contains common padding values used for password mutations
+const DefaultPaddings = `123
 1234
 12345
 123456
@@ -147,4 +150,4 @@ xyz
 69
 88
 99
-00
+00`

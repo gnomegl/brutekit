@@ -2,20 +2,16 @@ package utils
 
 import (
 	"bufio"
-	_ "embed"
 	"os"
 	"strings"
 )
-
-//go:embed common_padding_values.txt
-var EmbeddedPaddings string
 
 // Global storage for common padding values
 var CommonPaddings []string
 
 func LoadCommonPaddings() error {
-	// Read common paddings from file
-	scanner := bufio.NewScanner(strings.NewReader(EmbeddedPaddings))
+	// Read common paddings from string constant
+	scanner := bufio.NewScanner(strings.NewReader(DefaultPaddings))
 	for scanner.Scan() {
 		val := strings.TrimSpace(scanner.Text())
 		if val != "" {
